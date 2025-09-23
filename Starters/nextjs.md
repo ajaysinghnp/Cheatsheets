@@ -37,24 +37,101 @@ cd my-nextjs-app
 ```bash
 # using npm
 
-npm install -D prettier eslint-config-prettier eslint-plugin-prettier @types/eslint__js husky lint-staged @t3-oss/env-nextjs zod @trivago/prettier-plugin-sort-imports prettier-plugin-tailwindcss eslint-plugin-check-file eslint-plugin-n
+npm install @eslint/js
+
+npm install -D prettier eslint-config-prettier eslint-plugin-prettier husky lint-staged @t3-oss/env-nextjs zod @trivago/prettier-plugin-sort-imports prettier-plugin-tailwindcss eslint-plugin-check-file eslint-plugin-n
 ```
 
 ```bash
 # using pnpm
 
-pnpm add -D prettier eslint-config-prettier eslint-plugin-prettier @types/eslint__js husky lint-staged @t3-oss/env-nextjs zod @trivago/prettier-plugin-sort-imports prettier-plugin-tailwindcss eslint-plugin-check-file eslint-plugin-n
+pnpm install @eslint/js
+
+pnpm add -D prettier eslint-config-prettier eslint-plugin-prettier husky lint-staged @t3-oss/env-nextjs zod @trivago/prettier-plugin-sort-imports prettier-plugin-tailwindcss eslint-plugin-check-file eslint-plugin-n
 ```
 
 ```bash
 # using yarn
 
-yarn add -D prettier eslint-config-prettier eslint-plugin-prettier @types/eslint__js husky lint-staged @t3-oss/env-nextjs zod @trivago/prettier-plugin-sort-imports prettier-plugin-tailwindcss eslint-plugin-check-file eslint-plugin-n
+yarn install @eslint/js
+
+yarn add -D prettier eslint-config-prettier eslint-plugin-prettier husky lint-staged @t3-oss/env-nextjs zod @trivago/prettier-plugin-sort-imports prettier-plugin-tailwindcss eslint-plugin-check-file eslint-plugin-n
 ```
 
 ## Configuration Files
 
-### 3. ESLint Configuration (`.eslintrc.json`)
+### 3. ESLint Configuration
+
+1. Using `.mjs` file (`.eslintrc..mjs`)
+
+```typescript
+import { FlatCompat } from "@eslint/eslintrc";
+
+import checkFilePlugin from "eslint-plugin-check-file";
+import prettierPlugin from "eslint-plugin-prettier";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const__dirname = dirname(__filename);
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
+
+/** @type {import('eslint').Linter.Config[]} */
+const eslintConfig = [
+  ...compat.extends(
+    "next/core-web-vitals",
+    "next/typescript",
+    "prettier",
+    "plugin:n/recommended"
+  ),
+  {
+    ignores: [
+      "node_modules/**",
+      ".next/**",
+      "out/**",
+      "build/**",
+      "next-env.d.ts",
+    ],
+  },
+  {
+    plugins: {
+      prettier: prettierPlugin,
+      "check-file": checkFilePlugin,
+    },
+    rules: {
+      "prettier/prettier": "error",
+      "react-hooks/exhaustive-deps": "off",
+      "n/no-missing-import": "off",
+      "n/no-unpublished-import": "off",
+      "check-file/filename-naming-convention": [
+        "error",
+        {
+          "**/*.{js,jsx,ts,tsx}": "KEBAB_CASE",
+        },
+        {
+          ignoreMiddleExtensions: true,
+        },
+      ],
+      "check-file/folder-naming-convention": [
+        "error",
+        {
+          "app/**/": "NEXT_JS_APP_ROUTER_CASE",
+          "components/**/": "NEXT_JS_APP_ROUTER_CASE",
+          "lib/**/": "NEXT_JS_APP_ROUTER_CASE",
+          "hooks/**/": "NEXT_JS_APP_ROUTER_CASE",
+        },
+      ],
+    },
+  },
+];
+
+export default eslintConfig;
+```
+
+2. Using `json` file (`.eslintrc.json`)
 
 Update or create the ESLint configuration:
 
@@ -242,6 +319,35 @@ Add pre-commit hook:
 npx husky add .husky/pre-commit "npx lint-staged"
 ```
 
+sample `pre-commit` file:
+
+```bash
+#!/usr/bin/env sh
+echo "🏃 Running pre-commit checks..."
+
+# Run lint-staged
+pnpm exec lint-staged
+
+# Check if lint-staged passed
+if [ $? -ne 0 ]; then
+    echo "❌ Pre-commit checks failed. Please fix the errors and try again."
+    exit 1
+fi
+
+# Generate .sample.env file from .env
+npx helper gen-env --silent --name .env --sample .sample.env
+
+# Check if sample .env file generated successfully
+if [ $? -ne 0 ]; then
+    echo "❌ Sample .env file generation failed. Please fix the errors and try again."
+    exit 1
+fi
+
+git add .
+
+echo "✅ Pre-commit checks passed!"
+```
+
 ### 9. Lint-Staged Configuration
 
 Add to your `package.json`:
@@ -294,7 +400,8 @@ Update your `package.json` scripts:
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "type-check": "tsc --noEmit",
-    "env:check": "tsc --noEmit && next build"
+    "env:check": "tsc --noEmit && next build",
+    "prepare": "husky install"
   }
 }
 ```
