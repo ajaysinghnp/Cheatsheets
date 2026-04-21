@@ -1,4 +1,4 @@
-# Cheatseat Repository
+# Cheatsheet Repository
 
 This is the cheatseat repository on various topic to provide the guide on the same at various situation.
 
