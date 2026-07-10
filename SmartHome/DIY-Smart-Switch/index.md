@@ -16,7 +16,7 @@ These devices are sold under many brands on Aliexpress.
 
 Similar one can be found here [Aubees Mini Smart Switch](../Aubees-Mini-Smart-Switch/index.md)
 
-![alt text](Wifi-Switch.jpg "smart WIFI relay")
+!["smart WIFI relay"](Wifi-Switch.jpg)
 
 ## GPIO Pinout
 
