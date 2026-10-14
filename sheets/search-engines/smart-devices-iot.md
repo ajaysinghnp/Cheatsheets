@@ -4,8 +4,7 @@ slug: smart-devices-iot
 author: ajay-singh
 excerpt: List of Search Engines for files and metadata
 tags: ["Linux", "Search Engines", "Cybersecurity", "OSINT", "IoT", "Smart Home"]
-created_at: 2023-05-01T10:00:00Z
-updated_at: 2023-05-02T12:00:00Z
+created_at: 2026-07-10T15:43:46Z
 ---
 
 # Cameras, IoT and Smart Devices Search Engines

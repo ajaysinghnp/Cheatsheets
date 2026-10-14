@@ -4,8 +4,7 @@ slug: managing-network-and-configurations
 author: ajay-singh
 excerpt: Linux commands to manage network and configurations
 tags: ["Linux", "Network", "SysAdmin"]
-created_at: 2023-05-01T10:00:00Z
-updated_at: 2023-05-02T12:00:00Z
+created_at: 2025-07-11T05:00:04Z
 ---
 
 # Linux Network Configuration Guide

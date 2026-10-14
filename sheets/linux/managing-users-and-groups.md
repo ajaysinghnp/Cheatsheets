@@ -4,8 +4,7 @@ slug: managing-users-and-groups
 author: ajay-singh
 excerpt: Linux commands to manage users and groups
 tags: ["Linux", "Access Management", "SysAdmin"]
-created_at: 2023-05-01T10:00:00Z
-updated_at: 2023-05-02T12:00:00Z
+created_at: 2024-02-22T06:42:27Z
 ---
 
 # Note for managing Users and Groups in the Ubuntu OS
