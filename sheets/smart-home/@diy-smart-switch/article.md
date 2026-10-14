@@ -1,10 +1,16 @@
 ---
 title: DIY Smart Switch
-date-published: 2024-07-11
+slug: diy-smart-switch
+author: ajay-singh
+excerpt: Internals and the flashing the device with esphome
+tags: ["IoT", "Smart Home", "Cybersecurity", "OSINT", "Vulnerabilities", "Exploits"]
+created_at: 2024-07-11T10:00:00Z
+updated_at: 2024-07-11T12:00:00Z
+---
+
 type: relay
 standard: global
 board: bk72xx
----
 
 ## General Notes
 
@@ -62,10 +68,10 @@ There are also pads for GND and +3.3, but they are not so conveniently located -
 4. Select BK7231N chip.
 5. Click the `Do backup and flash new" button, short the CEN to GND momentarily and the flashing process will begin.
 
-    > It should extract the template and pin mapping just fine except the RF pin.
+   > It should extract the template and pin mapping just fine except the RF pin.
 
 6. Go to your router, discover the IP address of your newly flashed module. Go to http://<device_ip> and finish the setup by clicking on the `config` button. From the config menu go to Configure Module if you want to reconfigure pins. I personally found WiFiLED_n useless, so I changed it to LED_n with channel 1. I plan to 3D print a switch housing, so LED_n will light up when the switch is off, making it easier to find in the dark.  
-    Finally, on the Configure MQTT page put the address and user/password to connect to your MQTT Broker and the most basic setup is done.
+   Finally, on the Configure MQTT page put the address and user/password to connect to your MQTT Broker and the most basic setup is done.
 
 This is an easy way and works beautifully for the WiFi version of the switch (no RF). I wasn't able to figure out how to configure RF. Apparently it needs some scripts, starting a driver etc. Not so easy anymore. Also my end goal is to use it with Home Assistant, So i decided to go another way and install the ESPHome Firmware instead.
 
@@ -74,9 +80,9 @@ This is an easy way and works beautifully for the WiFi version of the switch (no
 1. Setup the ESPHome either as an add-on or the container according to your convenience.
 2. Also this can be done by installing esphome command line along with libretiny platform.
 
-      ```python
-     pio pkg install --platform libretiny
-     ```
+   ```python
+   pio pkg install --platform libretiny
+   ```
 
 3. I am using the ESPHome Builder in the home assistant. So head over to the Builder and create a new device and name it appropriately.
 4. Then compile and download the binary files in the UTF2 format (which is also the recommended). Or if you have done it using the command line then compile it there accordingly.

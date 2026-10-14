@@ -1,18 +1,28 @@
+---
+title: Managing Network Configuration Guide
+slug: managing-network-and-configurations
+author: ajay-singh
+excerpt: Linux commands to manage network and configurations
+tags: ["Linux", "Network", "SysAdmin"]
+created_at: 2023-05-01T10:00:00Z
+updated_at: 2023-05-02T12:00:00Z
+---
+
 # Linux Network Configuration Guide
 
 This markdown note covers essential concepts, tools, and configuration steps for managing networks on Linux.
 
 ## Key Concepts
 
-  1. NIC (Network Interface Controller): Physical/virtual network device (e.g., eth0, wlan0).
+1. NIC (Network Interface Controller): Physical/virtual network device (e.g., eth0, wlan0).
 
-  2. IP Address: Unique identifier for a device on a network (IPv4/IPv6).
+2. IP Address: Unique identifier for a device on a network (IPv4/IPv6).
 
-  3. Subnet Mask: Defines the network segment (e.g., 255.255.255.0 = /24).
+3. Subnet Mask: Defines the network segment (e.g., 255.255.255.0 = /24).
 
-  4. Gateway: Router interface connecting to external networks.
+4. Gateway: Router interface connecting to external networks.
 
-  5. DNS: Translates domain names to IP addresses (e.g., 8.8.8.8).
+5. DNS: Translates domain names to IP addresses (e.g., 8.8.8.8).
 
 ## Configuration Files & Locations
 
@@ -125,14 +135,14 @@ journalctl -u systemd-networkd  # View network service logs
 ### NetworkManager Tips
 
 - Enable/disable a connection:
-  
+
   ```bash
   nmcli connection up "MyEthernet"
   nmcli connection down "MyEthernet"
   ```
 
 - Add a Wi-Fi connection:
-  
+
   ```bash
   nmcli device wifi connect "SSID" password "PASSWORD"
   ```

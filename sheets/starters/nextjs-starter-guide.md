@@ -1,3 +1,13 @@
+---
+title: Nextjs Starter Guide
+slug: nextjs-starter-guide
+author: ajay-singh
+excerpt: Basic and minimum setup required for the nextjs project
+tags: ["Development", "Nextjs", "Starters", "Frontend"]
+created_at: 2024-07-11T10:00:00Z
+updated_at: 2024-07-11T12:00:00Z
+---
+
 # Next.js Project Setup Guide
 
 This guide will walk you through setting up a modern Next.js project with ESLint, Prettier, and other essential development tools.
@@ -131,7 +141,7 @@ const eslintConfig = [
 export default eslintConfig;
 ```
 
-2. Using `json` file (`.eslintrc.json`)
+1. Using `json` file (`.eslintrc.json`)
 
 Update or create the ESLint configuration:
 

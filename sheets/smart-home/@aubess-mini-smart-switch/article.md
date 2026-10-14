@@ -1,10 +1,16 @@
 ---
 title: Aubess Mini Smart Switch
-date-published: 2025-10-01
+slug: aubess-mini-smart-switch
+author: ajay-singh
+excerpt: Internals and the flashing the device with esphome
+tags: ["IoT", "Smart Home", "Cybersecurity", "OSINT", "Vulnerabilities", "Exploits"]
+created_at: 2025-10-01T10:00:00Z
+updated_at: 2025-10-01T12:00:00Z
+---
+
 type: switch
 standard: global
 board: bk72xx
----
 
 ![Product Image](./aubess_mini_smart_switch_photo.jpg "Product Image")
 
