@@ -22,6 +22,9 @@ const schema = z.strictObject({
   updated_at: z.coerce.date().optional(),
   published: z.boolean().optional(),
   slug: z.string().optional(),
+  type: z.string().optional(),
+  standard: z.string().optional(),
+  board: z.string().optional(),
 });
 
 const errors = [];
