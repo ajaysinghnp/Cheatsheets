@@ -11,8 +11,6 @@ Git is a distributed version control system that tracks changes to files, helps 
 
 This cheatsheet covers the most common Git commands, from creating your first repository to collaborating with others, resolving conflicts, undoing mistakes, and recovering lost work.
 
-![Git Workflow](./git-workflow.gif)
-
 ```mermaid
 sequenceDiagram
     participant WD as Working Directory
