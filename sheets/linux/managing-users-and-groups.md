@@ -1,3 +1,12 @@
+---
+title: Linux User and Group Management Guide
+slug: managing-users-and-groups
+author: ajay-singh
+excerpt: Linux commands to manage users and groups
+tags: ["Linux", "Access Management", "SysAdmin"]
+created_at: 2024-02-22T06:42:27Z
+---
+
 # Note for managing Users and Groups in the Ubuntu OS
 
 Ubuntu, like any other multi-user operating system, implements a system of file permissions and ownership as part of its security protocol. Managing users and groups in Ubuntu is crucial for setting up a system’s access rights and ensuring the appropriate segregation of rights. Whether you are an Ubuntu novice or an experienced administrator, knowing how to effectively manage users and groups is key to maintaining a secure system.

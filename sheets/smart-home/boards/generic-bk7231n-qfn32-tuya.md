@@ -1,3 +1,15 @@
+---
+title: Generic BK7231N QFN32 - Tuya Chip
+slug: generic-bk7231n-qfn32-tuya
+author: ajay-singh
+excerpt: Internals and the specifications of the BK7231N QFN32
+tags: ["IoT", "Smart Home", "Cybersecurity", "OSINT", "Vulnerabilities", "Exploits"]
+created_at: 2025-11-28T17:58:03Z
+type: tuya-chip
+standard: qfn
+board: bk72xx
+---
+
 # Generic - BK7231N (Tuya QFN32)
 
 ## Info and Flashing Guide

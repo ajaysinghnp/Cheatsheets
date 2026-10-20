@@ -1,47 +1,64 @@
-# Git Workflows Cheatseat
+---
+title: Git Workflows Cheatsheet
+slug: git-workflows-cheatsheet
+author: ajay-singh
+excerpt: Basic Git Commands
+tags: ["Version Control", "Development"]
+created_at: 2024-02-22T07:43:50Z
+---
+
+# Git Workflows Cheatsheet
 
 ![Git Workflow](./git-workflow.gif)
 
 ## Essential Git Commands: Getting Started
 
-**Initialize git repositoty:**
+**Initialize git repository:**
+
 ```bash
 git init
 ```
 
-**Clone git repositoty:**
+**Clone git repository:**
+
 ```bash
 git clone [url]
 ```
 
 ## Working with Remotes
 
-**List Remote git repositoty:**
+**List Remote git repository:**
+
 ```bash
 git remote -v
 ```
 
-**Add Remote to a git repositoty:**
+**Add Remote to a git repository:**
+
 ```bash
 git remote add [name] [url]
 ```
 
-**Remove Remote from a Local git repositoty:**
+**Remove Remote from a Local git repository:**
+
 ```bash
 git remote rm [name]
 ```
 
-**Fetch changes from a Remote git repositoty:**
+**Fetch changes from a Remote git repository:**
+
 ```bash
 git fetch [remote]
 ```
 
-**Pull changes from a Remote git repositoty:**
+**Pull changes from a Remote git repository:**
+
 ```bash
 git pull [remote] [branch]
 ```
 
-**Pushing Local changes to a Remote git repositoty:**
+**Pushing Local changes to a Remote git repository:**
+
 ```bash
 git push [remote] [branch]
 ```
@@ -49,26 +66,31 @@ git push [remote] [branch]
 ## Branching and Merging
 
 **List Branch of local git repository:**
+
 ```bash
 git branch
 ```
 
 **Create Branch on a local git repository:**
+
 ```bash
 git branch [name]
 ```
 
 **Switch Branch on a local git repository:**
+
 ```bash
 git checkout -b [branch]
 ```
 
 **Merge another Branch on a current branch of a local git repository:**
+
 ```bash
 git merge [branch]
 ```
 
 **Delete Branch on a local git repository:**
+
 ```bash
 git branch -d [branch]
 ```
@@ -76,31 +98,37 @@ git branch -d [branch]
 ## Making changes to the local git repository
 
 **Checking status:**
+
 ```bash
 git status
 ```
 
-**Adding changes/Stagging changed files:**
+**Adding changes/Staging changed files:**
+
 ```bash
 git add [files/directories]
 ```
 
 **Committing changes with message:**
+
 ```bash
 git commit -m "[message]"
 ```
 
 **Amend Commit:**
+
 ```bash
 git commit --amend [commit]
 ```
 
 **Reset File Changes:**
+
 ```bash
 git reset [file]
 ```
 
 **Hard Reset Commit Changes:**
+
 ```bash
 git reset --hard [commit]
 ```
@@ -108,26 +136,31 @@ git reset --hard [commit]
 ## Reviewing History
 
 **Checking git logs (with details of each commit):**
+
 ```bash
 git log
 ```
 
-**Checking git logs (oneline for each commit):**
+**Checking git logs (one line for each commit):**
+
 ```bash
 git log --oneline
 ```
 
 **Checking git logs (Graphical View):**
+
 ```bash
 git log --graph
 ```
 
 **Show changes between current state and commit:**
+
 ```bash
 git show [commit]
 ```
 
 **Difference between current branch and given branch:**
+
 ```bash
 git diff [branch]
 ```
@@ -135,38 +168,45 @@ git diff [branch]
 ## Cleanup and Maintenance
 
 **Stash changes temporarily:**
+
 ```bash
 git stash
 ```
 
 **Apply Stash changes temporarily:**
+
 ```bash
 git stash pop
 ```
 
 **Clean untracked files:**
+
 ```bash
 git clean -f
 ```
 
-## Advance and Miscelaneous
+## Advance and Miscellaneous
 
 **Rebase the current branch with provided one:**
+
 ```bash
 git rebase [branch]
 ```
 
 **Cherry pick:**
+
 ```bash
 git cherry-pick [commit]
 ```
 
 **Tagging:**
+
 ```bash
 𝚐𝚒𝚝 𝚝𝚊𝚐 [𝚗𝚊𝚖𝚎]
 ```
 
 **Search Log:**
+
 ```bash
 𝚐𝚒𝚝 𝚕𝚘𝚐 --𝚐𝚛𝚎𝚙="[𝚙𝚊𝚝𝚝𝚎𝚛𝚗]"
 ```

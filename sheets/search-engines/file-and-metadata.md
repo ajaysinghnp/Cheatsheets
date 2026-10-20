@@ -1,3 +1,12 @@
+---
+title: Search Engines for Files and Metadata
+slug: file-and-metadata
+author: ajay-singh
+excerpt: List of Search Engines for files and metadata
+tags: ["Linux", "Search Engines", "Cybersecurity", "OSINT"]
+created_at: 2026-07-10T15:43:46Z
+---
+
 # Files and Metadata Scanner Search Engines
 
 ## 1. FileFinder

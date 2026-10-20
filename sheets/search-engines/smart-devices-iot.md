@@ -1,3 +1,12 @@
+---
+title: Search Engines for Smart Devices IoT
+slug: smart-devices-iot
+author: ajay-singh
+excerpt: List of Search Engines for files and metadata
+tags: ["Linux", "Search Engines", "Cybersecurity", "OSINT", "IoT", "Smart Home"]
+created_at: 2026-07-10T15:43:46Z
+---
+
 # Cameras, IoT and Smart Devices Search Engines
 
 ## 1. Insecam

@@ -1,3 +1,12 @@
+---
+title: Search Engines for Devices and Internet
+slug: device-and-internet
+author: ajay-singh
+excerpt: List of Search Engines for devices and internet
+tags: ["Linux", "Search Engines", "Cybersecurity", "OSINT"]
+created_at: 2026-07-10T15:43:46Z
+---
+
 # Device and Internet Scanners
 
 ## 1. Shodan

@@ -1,0 +1,26 @@
+{
+  "name": "cheatsheets-content",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "new": "node scripts/new-sheet.mjs",
+    "format": "prettier --write \"sheets/**/*.md\"",
+    "format:check": "prettier --check \"sheets/**/*.md\"",
+    "check": "pnpm validate && pnpm format:check"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.10.1",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.10.1",
+  "devDependencies": {
+    "@mdx-js/mdx": "^3.1.1",
+    "gray-matter": "^4.0.3",
+    "prettier": "^3.9.9",
+    "zod": "^4.6.5"
+  }
+}
