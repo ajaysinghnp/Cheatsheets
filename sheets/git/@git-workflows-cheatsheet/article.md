@@ -14,66 +14,41 @@ This cheatsheet covers the most common Git commands, from creating your first re
 ![Git Workflow](./git-workflow.gif)
 
 ```mermaid
-flowchart LR
-    subgraph WORK["1. WORKING DIRECTORY"]
-        direction TB
-        WD["Working Files"]
-        UNTRACKED["Untracked Files"]
-        MODIFIED["Modified Files"]
-        WD --- UNTRACKED
-        WD --- MODIFIED
-    end
+sequenceDiagram
+    participant WD as Working Directory
+    participant IDX as Staging Area (Index)
+    participant HEAD as Local Repository (HEAD)
+    participant REM as Remote Repository
 
-    subgraph STAGE["2. STAGING AREA (INDEX)"]
-        direction TB
-        INDEX["Index"]
-        STAGED["Staged Changes"]
-        INDEX --- STAGED
-    end
+    WD->>IDX: git add
+    activate IDX
+    IDX-->>WD: Changes staged
+    deactivate IDX
 
-    subgraph LOCAL["3. LOCAL REPOSITORY"]
-        direction TB
-        HEAD["HEAD"]
-        COMMIT["Local Commits"]
-        BRANCH["Local Branch"]
-        HEAD --- COMMIT
-        COMMIT --- BRANCH
-    end
+    IDX->>HEAD: git commit
+    activate HEAD
+    HEAD-->>IDX: Commit created
+    deactivate HEAD
 
-    subgraph REMOTE["4. REMOTE REPOSITORY"]
-        direction TB
-        ORIGIN["origin"]
-        REMOTE_BRANCH["Remote Branch"]
-        REMOTE_COMMITS["Remote Commits"]
-        ORIGIN --- REMOTE_BRANCH
-        REMOTE_BRANCH --- REMOTE_COMMITS
-    end
+    HEAD->>REM: git push
+    activate REM
+    REM-->>HEAD: Changes pushed
+    deactivate REM
 
-    WD -->|"git add"| INDEX
-    INDEX -->|"git commit"| COMMIT
-    BRANCH -->|"git push"| REMOTE_BRANCH
+    REM->>HEAD: git fetch
+    activate HEAD
+    HEAD-->>REM: Remote tracking refs updated
+    deactivate HEAD
 
-    REMOTE_BRANCH -->|"git fetch"| HEAD
-    REMOTE_BRANCH -->|"git pull"| WD
+    REM->>WD: git pull (fetch + merge/rebase)
+    activate WD
+    WD-->>REM: Changes integrated
+    deactivate WD
 
-    INDEX -.->|"git restore --staged"| WD
-    COMMIT -.->|"git restore --source=HEAD"| WD
-    COMMIT -.->|"git reset"| INDEX
-
-    classDef working fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e,stroke-width:2px
-    classDef staging fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px
-    classDef local fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2px
-    classDef remote fill:#ede9fe,stroke:#7c3aed,color:#4c1d95,stroke-width:2px
-
-    class WD,UNTRACKED,MODIFIED working
-    class INDEX,STAGED staging
-    class HEAD,COMMIT,BRANCH local
-    class ORIGIN,REMOTE_BRANCH,REMOTE_COMMITS remote
-
-    style WORK fill:#f0f9ff,stroke:#0284c7,stroke-width:2px
-    style STAGE fill:#fffbeb,stroke:#d97706,stroke-width:2px
-    style LOCAL fill:#f0fdf4,stroke:#16a34a,stroke-width:2px
-    style REMOTE fill:#f5f3ff,stroke:#7c3aed,stroke-width:2px
+    HEAD->>WD: git checkout / switch
+    activate WD
+    WD-->>HEAD: Working tree updated
+    deactivate WD
 ```
 
 ## 1. Understanding the Git Workflow
